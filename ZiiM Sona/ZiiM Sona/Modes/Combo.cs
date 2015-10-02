@@ -22,10 +22,18 @@ namespace ZiiM.Sona.Modes
             // the menu in the Config class!
             if (Settings.UseQ && Q.IsReady())
             {
-                var target = TargetSelector.GetTarget(Q.Range, DamageType.Physical);
+                var target = TargetSelector.GetTarget(Q.Range, DamageType.Magical);
                 if (target != null)
                 {
                     Q.Cast(target);
+                }
+            }
+            if (Settings.UseR && R.IsReady())
+            {
+                var target = TargetSelector.GetTarget(R.Range, DamageType.Magical);
+                if (target != null)
+                {
+                    R.Cast(target);
                 }
             }
         }

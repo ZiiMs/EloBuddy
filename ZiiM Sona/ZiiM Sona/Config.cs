@@ -20,7 +20,7 @@ namespace ZiiM.Sona
             Menu = MainMenu.AddMenu(MenuName, MenuName.ToLower());
             Menu.AddGroupLabel("ZiiM's Sona!");
             Menu.AddLabel("Hope you enjoy!");
-            Menu.AddLabel("Created by: ZiiM!!!");
+            Menu.AddLabel("Created by: ZiiM!!");
 
             // Initialize the modes
             Modes.Initialize();
@@ -60,21 +60,11 @@ namespace ZiiM.Sona
             public static class Combo
             {
                 private static readonly CheckBox _useQ;
-                private static readonly CheckBox _useW;
-                private static readonly CheckBox _useE;
                 private static readonly CheckBox _useR;
 
                 public static bool UseQ
                 {
                     get { return _useQ.CurrentValue; }
-                }
-                public static bool UseW
-                {
-                    get { return _useW.CurrentValue; }
-                }
-                public static bool UseE
-                {
-                    get { return _useE.CurrentValue; }
                 }
                 public static bool UseR
                 {
@@ -114,7 +104,7 @@ namespace ZiiM.Sona
 
                     // Adding a slider, we have a little more options with them, using {0} {1} and {2}
                     // in the display name will replace it with 0=current 1=min and 2=max value
-                    Menu.Add("harassMana", new Slider("Maxi2mum mana usage in percent ({0}%)", 40));
+                    Menu.Add("harassMana", new Slider("Maximum mana usage in percent ({0}%)", 40));
                 }
 
                 public static void Initialize()
@@ -141,7 +131,7 @@ namespace ZiiM.Sona
 
                     // Adding a slider, we have a little more options with them, using {0} {1} and {2}
                     // in the display name will replace it with 0=current 1=min and 2=max value
-                    Menu.Add("LaneClearMana", new Slider("Maxi1mum mana usage in percent ({0}%)", 90));
+                    Menu.Add("LaneClearMana", new Slider("Maximum mana usage in percent ({0}%)", 90));
                 }
 
                 public static void Initialize()

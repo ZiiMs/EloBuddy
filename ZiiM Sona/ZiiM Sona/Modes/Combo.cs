@@ -17,17 +17,18 @@ namespace ZiiM.Sona.Modes
 
         public override void Execute()
         {
-            // TODO: Add combo logic here
-            // See how I used the Settings.UseQ here, this is why I love my way of using
-            // the menu in the Config class!
-            var target = TargetSelector.GetTarget(Q.Range, DamageType.Magical);
-            if (target != null)
+            if (Settings.UseQ && Q.IsReady())
             {
-                if (Settings.UseQ && Q.IsReady())
+                var target = TargetSelector.GetTarget(Q.Range, DamageType.Magical);
+                if (target != null)
                 {
                     Q.Cast();
                 }
-                if (Settings.UseR && R.IsReady())
+            }
+            if (Settings.UseR && R.IsReady())
+            {
+                var target = TargetSelector.GetTarget(R.Range, DamageType.Magical);
+                if (target != null)
                 {
                     R.Cast(target);
                 }

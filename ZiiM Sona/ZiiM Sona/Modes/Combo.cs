@@ -25,7 +25,7 @@ namespace ZiiM.Sona.Modes
             {
                 if (Settings.UseQ && Q.IsReady())
                 {
-                    Q.Cast(target);
+                    Q.Cast();
                 }
                 if (Settings.UseR && R.IsReady())
                 {

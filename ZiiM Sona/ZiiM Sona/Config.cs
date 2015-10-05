@@ -7,10 +7,6 @@ using EloBuddy.SDK.Menu.Values;
 
 namespace ZiiM.Sona
 {
-    // I can't really help you with my layout of a good config class
-    // since everyone does it the way they like it most, go checkout my
-    // config classes I make on my GitHub if you wanna take over the
-    // complex way that I use
     public static class Config
     {
         private const string MenuName = "ZiiM's Sona";

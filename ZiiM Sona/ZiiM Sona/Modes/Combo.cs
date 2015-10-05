@@ -26,14 +26,12 @@ namespace ZiiM.Sona.Modes
                 if (Settings.UseQ && Q.IsReady())
                 {
                     Q.Cast(target);
+                    return;
                 }
-            }
-            if (Settings.UseR && R.IsReady())
-            {
-                var target = TargetSelector.GetTarget(R.Range, DamageType.Magical);
-                if (target != null)
+                if (Settings.UseR && R.IsReady())
                 {
                     R.Cast(target);
+                    return;
                 }
             }
         }

@@ -26,12 +26,10 @@ namespace ZiiM.Sona.Modes
                 if (Settings.UseQ && Q.IsReady())
                 {
                     Q.Cast(target);
-                    return;
                 }
                 if (Settings.UseR && R.IsReady())
                 {
                     R.Cast(target);
-                    return;
                 }
             }
         }

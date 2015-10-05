@@ -27,8 +27,10 @@ namespace ZiiM.Sona
 
             // Initialize the modes
             Modes.Initialize();
+            
             //Autoheal and others
             Misc.Initialize();
+            
             //Drawing
             Drawing.Initialize();
         }
@@ -53,6 +55,9 @@ namespace ZiiM.Sona
 
                 // Harass
                 Harass.Initialize();
+                Menu.AddSeparator();
+                
+                // Laneclear
                 LaneClear.Initialize();
             }
 

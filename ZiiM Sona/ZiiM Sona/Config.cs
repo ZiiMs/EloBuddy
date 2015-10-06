@@ -77,10 +77,9 @@ namespace ZiiM.Sona
 
                 static Combo()
                 {
-                    // Initialize the menu values
                     Menu.AddGroupLabel("Combo");
                     _useQ = Menu.Add("comboUseQ", new CheckBox("Use Q"));
-                    _useR = Menu.Add("comboUseR", new CheckBox("Use R", false)); // Default false
+                    _useR = Menu.Add("comboUseR", new CheckBox("Use R", false));
                 }
 
                 public static void Initialize()
@@ -101,13 +100,8 @@ namespace ZiiM.Sona
 
                 static Harass()
                 {
-                    // Here is another option on how to use the menu, but I prefer the
-                    // way that I used in the combo class
                     Menu.AddGroupLabel("Harass");
                     Menu.Add("harassUseQ", new CheckBox("Use Q", false));
-
-                    // Adding a slider, we have a little more options with them, using {0} {1} and {2}
-                    // in the display name will replace it with 0=current 1=min and 2=max value
                     Menu.Add("harassMana", new Slider("Maximum mana usage in percent ({0}%)", 40));
                 }
 
@@ -128,13 +122,13 @@ namespace ZiiM.Sona
 
                 static LaneClear()
                 {
-                    // Here is another option on how to use the menu, but I prefer the
-                    // way that I used in the combo class
+                    //Label
                     Menu.AddGroupLabel("Lane Clear");
+                    
+                    // UseQ for laneclear checkbox
                     Menu.Add("LaneClearUseQ", new CheckBox("Use Q", false));
-
-                    // Adding a slider, we have a little more options with them, using {0} {1} and {2}
-                    // in the display name will replace it with 0=current 1=min and 2=max value
+                    
+                    // Mana usage bar
                     Menu.Add("LaneClearMana", new Slider("Maximum mana usage in percent ({0}%)", 90));
                 }
 

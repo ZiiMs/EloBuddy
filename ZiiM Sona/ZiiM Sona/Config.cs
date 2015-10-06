@@ -23,10 +23,10 @@ namespace ZiiM.Sona
 
             // Initialize the modes
             Modes.Initialize();
-            
+
             //Autoheal and others
             Misc.Initialize();
-            
+
             //Drawing
             Drawing.Initialize();
         }
@@ -52,7 +52,7 @@ namespace ZiiM.Sona
                 // Harass
                 Harass.Initialize();
                 Menu.AddSeparator();
-                
+
                 // Laneclear
                 LaneClear.Initialize();
             }
@@ -89,20 +89,24 @@ namespace ZiiM.Sona
 
             public static class Harass
             {
+                //Making the Checkboxs and Sliders
+                private static readonly CheckBox _useQ;
+                private static readonly Slider _Mana;
+
                 public static bool UseQ
                 {
-                    get { return Menu["harassUseQ"].Cast<CheckBox>().CurrentValue; }
+                    get { return _useQ.CurrentValue; }
                 }
                 public static int Mana
                 {
-                    get { return Menu["harassMana"].Cast<Slider>().CurrentValue; }
+                    get { return _Mana.CurrentValue; }
                 }
 
                 static Harass()
                 {
                     Menu.AddGroupLabel("Harass");
-                    Menu.Add("harassUseQ", new CheckBox("Use Q", false));
-                    Menu.Add("harassMana", new Slider("Maximum mana usage in percent ({0}%)", 40));
+                    _useQ = Menu.Add("harassUseQ", new CheckBox("Use Q", false));
+                    _Mana = Menu.Add("harassMana", new Slider("Maximum mana usage in percent ({0}%)", 40));
                 }
 
                 public static void Initialize()
@@ -111,25 +115,28 @@ namespace ZiiM.Sona
             }
             public static class LaneClear
             {
+                private static readonly CheckBox _useQ;
+                private static readonly Slider _Mana;
+
                 public static bool UseQ
                 {
-                    get { return Menu["LaneClearUseQ"].Cast<CheckBox>().CurrentValue; }
+                    get { return _useQ.CurrentValue; }
                 }
                 public static int Mana
                 {
-                    get { return Menu["LaneClearMana"].Cast<Slider>().CurrentValue; }
+                    get { return _Mana.CurrentValue; }
                 }
 
                 static LaneClear()
                 {
                     //Label
                     Menu.AddGroupLabel("Lane Clear");
-                    
+
                     // UseQ for laneclear checkbox
-                    Menu.Add("LaneClearUseQ", new CheckBox("Use Q", false));
-                    
+                    _useQ = Menu.Add("LaneClearUseQ", new CheckBox("Use Q", false));
+
                     // Mana usage bar
-                    Menu.Add("LaneClearMana", new Slider("Maximum mana usage in percent ({0}%)", 90));
+                    _Mana = Menu.Add("LaneClearMana", new Slider("Maximum mana usage in percent ({0}%)", 90));
                 }
 
                 public static void Initialize()
@@ -137,25 +144,36 @@ namespace ZiiM.Sona
                 }
             }
         }
-    public static class Misc
+        public static class Misc
         {
             private static Menu Menu;
 
+            private static readonly CheckBox _useW;
+            private static readonly CheckBox _Healself;
+            private static readonly Slider _Mana;
+            private static readonly Slider _MinHP;
+            private static readonly Slider _Allies;
+
+
             public static bool UseW
             {
-                get { return Menu["MiscUseW"].Cast<CheckBox>().CurrentValue; }
+                get { return _useW.CurrentValue; }
+            }
+            public static bool HealSelf
+            {
+                get { return _Healself.CurrentValue; }
             }
             public static int Mana
             {
-                get { return Menu["AutoHealMana"].Cast<Slider>().CurrentValue; }
+                get { return _Mana.CurrentValue; }
             }
             public static int MinHP
             {
-                get { return Menu["HPBar"].Cast<Slider>().CurrentValue; }
+                get { return _MinHP.CurrentValue; }
             }
             public static int Allies
             {
-                get { return Menu["MinAllies"].Cast<Slider>().CurrentValue; }
+                get { return _Allies.CurrentValue; }
             }
 
             static Misc()
@@ -165,20 +183,21 @@ namespace ZiiM.Sona
                 Menu = Config.Menu.AddSubMenu("Misc");
 
                 Menu.AddGroupLabel("AutoHeal");
-                Menu.Add("MiscUseW", new CheckBox("AutoHeal"));
+                _useW = Menu.Add("MiscUseW", new CheckBox("AutoHeal"));
+                _Healself = Menu.Add("HealSelf", new CheckBox("Healself"));
 
                 // Adding a slider, we have a little more options with them, using {0} {1} and {2}
                 // in the display name will replace it with 0=current 1=min and 2=max value
-                Menu.Add("AutoHealMana", new Slider("Minimum HP before using heal ({0}%)", 90));
-                Menu.Add("HPBar", new Slider("Minimum HP before using heal ({0}%)", 10));
-                Menu.Add("MinAllies", new Slider("Amount of allies in range", 3, 1, 5));
+                _Mana = Menu.Add("AutoHealMana", new Slider("Minimum HP before using heal ({0}%)", 90));
+                _MinHP = Menu.Add("HPBar", new Slider("Minimum HP before using heal ({0}%)", 10));
+                _Allies = Menu.Add("MinAllies", new Slider("Amount of allies in range", 3, 1, 5));
             }
 
             public static void Initialize()
             {
             }
         }
-    public static class Drawing
+        public static class Drawing
         {
             private static Menu Menu { get; set; }
 

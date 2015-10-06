@@ -16,7 +16,7 @@ namespace ZiiM.Sona
             // Initialize properties
             Modes = new List<ModeBase>();
 
-            // Load all modes manually since we are in a sandbox which does not allow reflection
+            // Load all modes
             // Order matter here! You would want something like PermaActive being called first
             Modes.AddRange(new ModeBase[]
             {

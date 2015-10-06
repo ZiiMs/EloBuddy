@@ -10,7 +10,7 @@ namespace ZiiM.Sona
     {
         // Change this line to the champion you want to make the addon for,
         // watch out for the case being correct!
-        public const string ChampName = "Sona";
+        public const string ChampName = "";
 
         public static void Main(string[] args)
         {
@@ -21,7 +21,7 @@ namespace ZiiM.Sona
         private static void OnLoadingComplete(EventArgs args)
         {
             // Verify the champion we made this addon for
-            if (Player.Instance.ChampionName != ChampName)
+            if (Player.Instance.ChampionName == ChampName)
             {
                 // Champion is not the one we made this addon for,
                 // therefore we return

@@ -184,13 +184,13 @@ namespace ZiiM.Sona
 
                 Menu.AddGroupLabel("AutoHeal");
                 _useW = Menu.Add("MiscUseW", new CheckBox("AutoHeal"));
-                _Healself = Menu.Add("HealSelf", new CheckBox("Healself"));
+                _Healself = Menu.Add("HealSelf", new CheckBox("Heal your self"));
 
                 // Adding a slider, we have a little more options with them, using {0} {1} and {2}
                 // in the display name will replace it with 0=current 1=min and 2=max value
-                _Mana = Menu.Add("AutoHealMana", new Slider("Minimum HP before using heal ({0}%)", 90));
-                _MinHP = Menu.Add("HPBar", new Slider("Minimum HP before using heal ({0}%)", 10));
-                _Allies = Menu.Add("MinAllies", new Slider("Amount of allies in range", 3, 1, 5));
+                _Mana = Menu.Add("AutoHealMana", new Slider("Dont use heal below this amount of Mana ({1}%)", 30));
+                _MinHP = Menu.Add("HPBar", new Slider("Dont heal unless they are below this amount of health ({1}%)", 15));
+                _Allies = Menu.Add("MinAllies", new Slider("Amount of allies in range before healing", 1, 1, 4));
             }
 
             public static void Initialize()
@@ -204,7 +204,6 @@ namespace ZiiM.Sona
             private static readonly CheckBox _drawQ;
             private static readonly CheckBox _drawW;
             private static readonly CheckBox _drawE;
-            private static readonly CheckBox _drawEleaving;
             private static readonly CheckBox _drawR;
 
             public static bool DrawQ

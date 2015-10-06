@@ -22,14 +22,21 @@ namespace ZiiM.Sona.Modes
                 {
                     if (tars.Length >= Settings.Allies)
                     {
-                        foreach (var target in HeroManager.Allies.Where(target => target.IsValidTarget(W.Range) && !target.IsZombie))
+                        foreach (var target in HeroManager.Allies.Where(target => target.IsValidTarget(W.Range) && !target.IsZombie && !target.IsMe))
                         {
-                            if (target.HealthPercent <= Settings.MinHP || Player.Instance.HealthPercent <= Settings.MinHP)
+                            if (target.HealthPercent <= Settings.MinHP)
                             {
                                 W.Cast();
                             }
                         }
                     }
+                }
+            }
+            if (Settings.HealSelf && Player.Instance.ManaPercent > Settings.Mana && W.IsReady())
+            {
+                if (Player.Instance.HealthPercent <= Settings.MinHP)
+                {
+                    W.Cast();
                 }
             }
         }

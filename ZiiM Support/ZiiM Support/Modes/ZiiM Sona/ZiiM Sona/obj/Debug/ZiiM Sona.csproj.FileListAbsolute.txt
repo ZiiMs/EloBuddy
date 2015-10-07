@@ -1,2 +1,0 @@
-C:\Users\Alex\Desktop\EloBuddy-Addons-master\ZiiM Sona\ZiiM Sona\bin\Debug\AddonTemplate.exe.config
-C:\Users\Alex\Desktop\EloBuddy-master\ZiiM Sona\ZiiM Sona\bin\Debug\AddonTemplate.exe.config

@@ -77,6 +77,17 @@
     <Compile Include="Modes\ZiiM Leona\Modes\PermaActive.cs" />
     <Compile Include="Modes\ZiiM Leona\Leona.cs" />
     <Compile Include="Modes\ZiiM Leona\SpellManager.cs" />
+    <Compile Include="Modes\ZiiM Soraka\Config.cs" />
+    <Compile Include="Modes\ZiiM Soraka\ModeManager.cs" />
+    <Compile Include="Modes\ZiiM Soraka\Modes\Combo.cs" />
+    <Compile Include="Modes\ZiiM Soraka\Modes\Flee.cs" />
+    <Compile Include="Modes\ZiiM Soraka\Modes\Harass.cs" />
+    <Compile Include="Modes\ZiiM Soraka\Modes\JungleClear.cs" />
+    <Compile Include="Modes\ZiiM Soraka\Modes\LaneClear.cs" />
+    <Compile Include="Modes\ZiiM Soraka\Modes\ModeBase.cs" />
+    <Compile Include="Modes\ZiiM Soraka\Modes\PermaActive.cs" />
+    <Compile Include="Modes\ZiiM Soraka\Soraka.cs" />
+    <Compile Include="Modes\ZiiM Soraka\SpellManager.cs" />
     <Compile Include="SpellColors.cs" />
     <Compile Include="Modes\ZiiM LuLu\AutoShield.cs" />
     <Compile Include="Modes\ZiiM LuLu\Config.cs" />

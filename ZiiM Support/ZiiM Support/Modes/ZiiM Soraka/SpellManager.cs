@@ -16,9 +16,7 @@ namespace ZiiM.Soraka
         public static Spell.Skillshot E { get; private set; }
         public static Spell.Active R { get; private set; }
 
-        public static List<Spell.SpellBase> AllSpells { get; private set; }
-
-        public static Dictionary<SpellSlot, Color> ColorTranslation { get; private set; }
+        public static List<Spell.SpellBase> AllSpell { get; private set; }
 
         static SpellManager()
         {
@@ -28,28 +26,10 @@ namespace ZiiM.Soraka
             E = new Spell.Skillshot(SpellSlot.E, 825, SkillShotType.Circular, 150, 0, 250);
             R = new Spell.Active(SpellSlot.R, 25000);
 
-            AllSpells = new List<Spell.SpellBase>(new Spell.SpellBase[] { Q, W, E });
-            ColorTranslation = new Dictionary<SpellSlot, Color>
-            {
-                { SpellSlot.Q, Color.Blue.ToArgb(150) },
-                { SpellSlot.W, Color.Purple.ToArgb(150) },
-                { SpellSlot.E, Color.Green.ToArgb(150) }
-
-            };
+            AllSpell = new List<Spell.SpellBase>(new Spell.SpellBase[] { Q, W, E });
         }
-
         public static void Initialize()
         {
-            // Let the static initializer do the job, this way we avoid multiple init calls aswell
-        }
-        private static Color ToArgb(this Color color, byte a)
-        {
-            return new ColorBGRA(color.R, color.G, color.B, a);
-        }
-
-        public static Color GetColor(this Spell.SpellBase spell)
-        {
-            return ColorTranslation.ContainsKey(spell.Slot) ? ColorTranslation[spell.Slot] : Color.Wheat;
         }
     }
 }

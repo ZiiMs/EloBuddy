@@ -77,12 +77,26 @@ namespace ZiiM.Support
                 ZiiM.Janna.Janna.Initialize();
                 Drawing.OnDraw += OnDraw;
             }
+            else if (Player.Instance.ChampionName == "Janna")
+            {
+                // Champion is not the one we made this addon for,
+                // therefore we return
+
+
+
+                // Initialize the classes that we need
+                ZiiM.Soraka.Config.Initialize();
+                ZiiM.Soraka.SpellManager.Initialize();
+                ZiiM.Soraka.ModeManager.Initialize();
+                ZiiM.Soraka.Soraka.Initialize();
+                Drawing.OnDraw += OnDraw;
+            }
             else
             {
                 return;
             }
             var SkinChampName = Player.Instance.ChampionName;
-            var version = "Version 1.4.7";
+            var version = "Version 1.5.8";
 
             Chat.Print("ZiiM's Support bundle loaded. " + version, Color.Blue);
             Chat.Print("You have loaded ZiiM's " + SkinChampName + ".", Color.Blue);
@@ -231,6 +245,40 @@ namespace ZiiM.Support
 
                     Circle.Draw(spell.GetColor(), spell.Range, Player.Instance.Position);
                 }
+            }
+            else if (Player.Instance.ChampionName == "Soraka")
+            {
+                foreach (var spell in ZiiM.Soraka.SpellManager.AllSpell)
+                {
+                    switch (spell.Slot)
+                    {
+                        case SpellSlot.Q:
+                            if (!ZiiM.Soraka.Config.Drawing.DrawQ)
+                            {
+                                continue;
+                            }
+                            break;
+                        case SpellSlot.W:
+                            if (!ZiiM.Soraka.Config.Drawing.DrawW)
+                            {
+                                continue;
+                            }
+                            break;
+                        case SpellSlot.E:
+                            if (!ZiiM.Soraka.Config.Drawing.DrawE)
+                            {
+                                continue;
+                            }
+                            break;
+
+                    }
+
+                    Circle.Draw(spell.GetColor(), spell.Range, Player.Instance.Position);
+                }
+            }
+            else
+            {
+                return;
             }
         }
     }

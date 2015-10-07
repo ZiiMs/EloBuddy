@@ -54,6 +54,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modes\ZiiM Janna\AutoShield.cs" />
+    <Compile Include="Modes\ZiiM Janna\Config.cs" />
+    <Compile Include="Modes\ZiiM Janna\ModeManager.cs" />
+    <Compile Include="Modes\ZiiM Janna\Modes\Combo.cs" />
+    <Compile Include="Modes\ZiiM Janna\Modes\Flee.cs" />
+    <Compile Include="Modes\ZiiM Janna\Modes\Harass.cs" />
+    <Compile Include="Modes\ZiiM Janna\Modes\JungleClear.cs" />
+    <Compile Include="Modes\ZiiM Janna\Modes\LaneClear.cs" />
+    <Compile Include="Modes\ZiiM Janna\Modes\ModeBase.cs" />
+    <Compile Include="Modes\ZiiM Janna\Modes\PermaActive.cs" />
+    <Compile Include="Modes\ZiiM Janna\Janna.cs" />
+    <Compile Include="Modes\ZiiM Janna\SpellManager.cs" />
     <Compile Include="Modes\ZiiM Leona\Config.cs" />
     <Compile Include="Modes\ZiiM Leona\ModeManager.cs" />
     <Compile Include="Modes\ZiiM Leona\Modes\Combo.cs" />

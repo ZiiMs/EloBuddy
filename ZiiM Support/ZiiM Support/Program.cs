@@ -63,12 +63,26 @@ namespace ZiiM.Support
                 ZiiM.Leona.Leona.Initialize();
                 Drawing.OnDraw += OnDraw;
             }
+            else if (Player.Instance.ChampionName == "Janna")
+            {
+                // Champion is not the one we made this addon for,
+                // therefore we return
+
+
+
+                // Initialize the classes that we need
+                ZiiM.Janna.Config.Initialize();
+                ZiiM.Janna.SpellManager.Initialize();
+                ZiiM.Janna.ModeManager.Initialize();
+                ZiiM.Janna.Janna.Initialize();
+                Drawing.OnDraw += OnDraw;
+            }
             else
             {
                 return;
             }
             var SkinChampName = Player.Instance.ChampionName;
-            var version = "Version 1.3.7";
+            var version = "Version 1.4.7";
 
             Chat.Print("ZiiM's Support bundle loaded. " + version, Color.Blue);
             Chat.Print("You have loaded ZiiM's " + SkinChampName + ".", Color.Blue);
@@ -172,6 +186,42 @@ namespace ZiiM.Support
                             break;
                         case SpellSlot.R:
                             if (!ZiiM.Leona.Config.Drawing.DrawR)
+                            {
+                                continue;
+                            }
+                            break;
+
+                    }
+
+                    Circle.Draw(spell.GetColor(), spell.Range, Player.Instance.Position);
+                }
+            }
+            else if (Player.Instance.ChampionName == "Janna")
+            {
+                foreach (var spell in ZiiM.Janna.SpellManager.AllSpell)
+                {
+                    switch (spell.Slot)
+                    {
+                        case SpellSlot.Q:
+                            if (!ZiiM.Janna.Config.Drawing.DrawQ)
+                            {
+                                continue;
+                            }
+                            break;
+                        case SpellSlot.W:
+                            if (!ZiiM.Janna.Config.Drawing.DrawW)
+                            {
+                                continue;
+                            }
+                            break;
+                        case SpellSlot.E:
+                            if (!ZiiM.Janna.Config.Drawing.DrawE)
+                            {
+                                continue;
+                            }
+                            break;
+                        case SpellSlot.R:
+                            if (!ZiiM.Janna.Config.Drawing.DrawR)
                             {
                                 continue;
                             }

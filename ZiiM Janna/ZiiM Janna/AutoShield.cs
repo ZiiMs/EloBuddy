@@ -4,9 +4,9 @@ using System.Linq;
 using EloBuddy;
 using EloBuddy.SDK;
 using EloBuddy.SDK.Constants;
-using Settings = ZiiM.LuLu.Config.Misc.AutoShield;
+using Settings = ZiiM.Janna.Config.Misc.AutoShield;
 
-namespace ZiiM.LuLu
+namespace ZiiM.Janna
 {
     public class AutoShield
     {
@@ -38,7 +38,7 @@ namespace ZiiM.LuLu
                         E.Cast(ally);
                 }
             }
-            if (Settings.UseE && E.IsReady() && Settings.ShieldSelf)
+            if (Settings.UseE && E.IsReady() && Settings.IsMe)
             {
                 foreach (var ally in EntityManager.Heroes.Allies.Where(ally => E.IsInRange(ally) && !ally.IsZombie && ally.IsMe))
                 {

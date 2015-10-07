@@ -31,7 +31,16 @@ namespace ZiiM.LuLu
         {
             if (Settings.UseE && E.IsReady())
             {
-                foreach (var ally in EntityManager.Heroes.Allies.Where(ally => E.IsInRange(ally) && !ally.IsZombie))
+                foreach (var ally in EntityManager.Heroes.Allies.Where(ally => E.IsInRange(ally) && !ally.IsZombie && !ally.IsMe))
+                {
+                    // Ult casting
+                    if (IncomingDamage > 0)
+                        E.Cast(ally);
+                }
+            }
+            if (Settings.UseE && E.IsReady() && Settings.ShieldSelf)
+            {
+                foreach (var ally in EntityManager.Heroes.Allies.Where(ally => E.IsInRange(ally) && !ally.IsZombie && ally.IsMe))
                 {
                     // Ult casting
                     if (IncomingDamage > 0)

@@ -4,9 +4,9 @@ using System.Linq;
 using EloBuddy;
 using EloBuddy.SDK;
 using EloBuddy.SDK.Constants;
-using Settings = ZiiM.LuLu.Config.Misc.AutoShield;
+using Settings = ZiiM.Janna.Config.Misc.AutoShield;
 
-namespace ZiiM.LuLu
+namespace ZiiM.Janna
 {
     public class AutoShield
     {
@@ -33,20 +33,22 @@ namespace ZiiM.LuLu
             {
                 foreach (var ally in EntityManager.Heroes.Allies.Where(ally => E.IsInRange(ally) && !ally.IsZombie && !ally.IsMe))
                 {
-                    // Ult casting
+                    // Shield Casting
                     if (IncomingDamage > 0)
                         E.Cast(ally);
                 }
             }
+
             if (Settings.UseE && E.IsReady() && Settings.ShieldSelf)
             {
                 foreach (var ally in EntityManager.Heroes.Allies.Where(ally => E.IsInRange(ally) && !ally.IsZombie && ally.IsMe))
                 {
-                    // Ult casting
+                    // Shield Casting
                     if (IncomingDamage > 0)
                         E.Cast(ally);
                 }
             }
+
 
             // Check spell arrival
             foreach (var entry in IncDamage.Where(entry => entry.Key < Game.Time).ToArray())
@@ -67,7 +69,7 @@ namespace ZiiM.LuLu
             { 
                 if (sender.IsEnemy)
                 {
-                    // Calculations to save your souldbound
+                    // Calculations to save your ally
                     if (ally != null && Settings.UseE)
                     {
                             // Auto attacks

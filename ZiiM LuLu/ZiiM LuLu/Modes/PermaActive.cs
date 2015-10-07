@@ -5,7 +5,7 @@ using EloBuddy.SDK;
 
 // Using the config like this makes your life easier, trust me
 using Settings = ZiiM.LuLu.Config.Misc.AutoUlt;
-using Setting = ZiiM.LuLu.Config.Misc.AutoShield;
+
 
 namespace ZiiM.LuLu.Modes
 {

@@ -4,7 +4,7 @@ using EloBuddy.SDK;
 using EloBuddy.SDK.Enumerations;
 using SharpDX;
 
-namespace ZiiM.LuLu
+namespace ZiiM.Soraka
 {
     public static class SpellManager
     {
@@ -13,8 +13,8 @@ namespace ZiiM.LuLu
         // right now it's  set to Active.
         public static Spell.Skillshot Q { get; private set; }
         public static Spell.Targeted W { get; private set; }
-        public static Spell.Targeted E { get; private set; }
-        public static Spell.Targeted R { get; private set; }
+        public static Spell.Skillshot E { get; private set; }
+        public static Spell.Active R { get; private set; }
 
         public static List<Spell.SpellBase> AllSpells { get; private set; }
 
@@ -23,10 +23,10 @@ namespace ZiiM.LuLu
         static SpellManager()
         {
             // Initialize spells
-            Q = new Spell.Skillshot(SpellSlot.Q, 925, SkillShotType.Linear, 150, 1400, 80);
-            W = new Spell.Targeted(SpellSlot.W, 650);
-            E = new Spell.Targeted(SpellSlot.E, 650);
-            R = new Spell.Targeted(SpellSlot.R, 900);
+            Q = new Spell.Skillshot(SpellSlot.Q, 900, SkillShotType.Circular, 150, 1750, 260);
+            W = new Spell.Targeted(SpellSlot.W, 500);
+            E = new Spell.Skillshot(SpellSlot.E, 825, SkillShotType.Circular, 150, 0, 250);
+            R = new Spell.Active(SpellSlot.R, 1000);
 
             AllSpells = new List<Spell.SpellBase>(new Spell.SpellBase[] { Q, W, E, R });
             ColorTranslation = new Dictionary<SpellSlot, Color>
@@ -35,6 +35,7 @@ namespace ZiiM.LuLu
                 { SpellSlot.W, Color.Purple.ToArgb(150) },
                 { SpellSlot.E, Color.Green.ToArgb(150) },
                 { SpellSlot.R, Color.Red.ToArgb(150) }
+
             };
         }
 

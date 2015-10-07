@@ -38,7 +38,7 @@ namespace ZiiM.Janna
                         E.Cast(ally);
                 }
             }
-            if (Settings.UseE && E.IsReady() && Settings.IsMe)
+            if (Settings.UseE && E.IsReady() && Settings.ShieldSelf)
             {
                 foreach (var ally in EntityManager.Heroes.Allies.Where(ally => E.IsInRange(ally) && !ally.IsZombie && ally.IsMe))
                 {

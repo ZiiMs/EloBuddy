@@ -18,8 +18,6 @@ namespace ZiiM.LuLu
 
         public static List<Spell.SpellBase> AllSpell { get; private set; }
 
-        public static Dictionary<SpellSlot, Color> ColorTranslatio { get; private set; }
-
         static SpellManager()
         {
             // Initialize spells
@@ -31,27 +29,10 @@ namespace ZiiM.LuLu
             R = new Spell.Targeted(SpellSlot.R, 900);
 
             AllSpell = new List<Spell.SpellBase>(new Spell.SpellBase[] { Q, W, E, R });
-            ColorTranslatio = new Dictionary<SpellSlot, Color>
-            {
-                { SpellSlot.Q, Color.Blue.ToArgb(150) },
-                { SpellSlot.W, Color.Purple.ToArgb(150) },
-                { SpellSlot.E, Color.Green.ToArgb(150) },
-                { SpellSlot.R, Color.Red.ToArgb(150) }
-            };
         }
-
         public static void Initialize()
         {
-            // Let the static initializer do the job, this way we avoid multiple init calls aswell
-        }
-        private static Color ToArgb(this Color color, byte a)
-        {
-            return new ColorBGRA(color.R, color.G, color.B, a);
-        }
-
-        public static Color GetColo(this Spell.SpellBase spell)
-        {
-            return ColorTranslatio.ContainsKey(spell.Slot) ? ColorTranslatio[spell.Slot] : Color.Wheat;
+            // This Allows us to call this program to be loaded in our initiliazing program
         }
     }
 }

@@ -4,12 +4,13 @@ using EloBuddy.SDK.Events;
 using EloBuddy.SDK.Rendering;
 using SharpDX;
 
-namespace ZiiM.LuLu
+namespace ZiiM.Leona
 {
-    public static class LuLu
+    public static class Leona
     {
-        // We are double checking to make sure that the correct script is being loaded.
-        public const string ChampName = "Lulu";
+        // Change this line to the champion you want to make the addon for,
+        // watch out for the case being correct!
+        public const string ChampName = "Leona";
 
         private static void OnLoadingComplete(EventArgs args)
         {

@@ -4,13 +4,13 @@ using EloBuddy.SDK.Events;
 using EloBuddy.SDK.Rendering;
 using SharpDX;
 
-namespace ZiiM.LuLu
+namespace ZiiM.Leona
 {
     public static class Program
     {
         // Change this line to the champion you want to make the addon for,
         // watch out for the case being correct!
-        public const string ChampName = "Lulu";
+        public const string ChampName = "Leona";
 
         public static void Main(string[] args)
         {
@@ -25,10 +25,9 @@ namespace ZiiM.LuLu
             {
                 return;
             }
-            
+
             Config.Initialize();
             SpellManager.Initialize();
-            AutoShield.Initialize();
             ModeManager.Initialize();
 
             Drawing.OnDraw += OnDraw;

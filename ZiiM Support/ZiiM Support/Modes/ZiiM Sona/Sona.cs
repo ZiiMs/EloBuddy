@@ -8,8 +8,7 @@ namespace ZiiM.Sona
 {
     public static class Sona
     {
-        // Change this line to the champion you want to make the addon for,
-        // watch out for the case being correct!
+        // We are double checking to make sure that the correct script is being loaded.
         public const string ChampName = "Sona";
 
         private static void OnLoadingComplete(EventArgs args)
@@ -19,50 +18,10 @@ namespace ZiiM.Sona
             {
                 return;
             }
-
-            // Listen to events we need
-            Drawing.OnDraw += OnDraw;
-        }
-
-        private static void OnDraw(EventArgs args)
-        {
-            //Drawing all Circles
-            foreach (var spell in SpellManager.AllSpell)
-            {
-                switch (spell.Slot)
-                {
-                    case SpellSlot.Q:
-                        if (!ZiiM.Sona.Config.Drawing.DrawQ)
-                        {
-                            continue;
-                        }
-                        break;
-                    case SpellSlot.W:
-                        if (!ZiiM.Sona.Config.Drawing.DrawW)
-                        {
-                            continue;
-                        }
-                        break;
-                    case SpellSlot.E:
-                        if (!ZiiM.Sona.Config.Drawing.DrawE)
-                        {
-                            continue;
-                        }
-                        break;
-                    case SpellSlot.R:
-                        if (!ZiiM.Sona.Config.Drawing.DrawR)
-                        {
-                            continue;
-                        }
-                        break;
-
-                }
-
-                Circle.Draw(spell.GetColo(), spell.Range, Player.Instance.Position);
-            }
         }
         public static void Initialize()
         {
+            // This Allows us to call this program to be loaded in our initiliazing program
         }
     }
 }

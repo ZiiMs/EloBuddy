@@ -4,7 +4,7 @@ using EloBuddy.SDK;
 using EloBuddy.SDK.Enumerations;
 using SharpDX;
 
-namespace ZiiM.Sona
+namespace ZiiM.Leona
 {
     public static class SpellManager
     {
@@ -13,7 +13,7 @@ namespace ZiiM.Sona
         // right now it's  set to Active.
         public static Spell.Active Q { get; private set; }
         public static Spell.Active W { get; private set; }
-        public static Spell.Active E { get; private set; }
+        public static Spell.Skillshot E { get; private set; }
         public static Spell.Skillshot R { get; private set; }
 
         public static List<Spell.SpellBase> AllSpell { get; private set; }
@@ -21,12 +21,10 @@ namespace ZiiM.Sona
         static SpellManager()
         {
             // Initialize spells
-            Q = new Spell.Active(SpellSlot.Q, 825);
-
-            // TODO: Uncomment the other spells to initialize them
-            W = new Spell.Active(SpellSlot.W, 1000);
-            E = new Spell.Active(SpellSlot.E, 360);
-            R = new Spell.Skillshot(SpellSlot.R, 900, SkillShotType.Linear, 250, 1200, 40);
+            Q = new Spell.Active(SpellSlot.Q, 100);
+            W = new Spell.Active(SpellSlot.W, 450);
+            E = new Spell.Skillshot(SpellSlot.E, 875, SkillShotType.Linear, 150, 1200, 80);
+            R = new Spell.Skillshot(SpellSlot.R, 1200, SkillShotType.Circular, 150, 20, 120);
 
             AllSpell = new List<Spell.SpellBase>(new Spell.SpellBase[] { Q, W, E, R });
         }

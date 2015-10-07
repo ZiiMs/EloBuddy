@@ -1,15 +1,16 @@
 ﻿using EloBuddy;
 using System.Linq;
 using EloBuddy.SDK;
-using Settings = ZiiM.Sona.Config.Modes.LaneClear;
 
-namespace ZiiM.Sona.Modes
+using Settings = ZiiM.Leona.Config.Modes.LaneClear;
+  
+namespace ZiiM.Leona.Modes
 {
     public sealed class LaneClear : ModeBase
     {
         public override bool ShouldBeExecuted()
         {
-            // Only execute this mode when the orbwalker is on laneclear mode
+            // Only execute this mode when the orbwalker is on jungleclear mode
             return Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.LaneClear);
         }
 
@@ -20,31 +21,30 @@ namespace ZiiM.Sona.Modes
                 return;
             }
 
-            if (!(Settings.UseQ && Q.IsReady()))
-            {
-                return;
-            }
-
             // Minions around
             var minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.ServerPosition, Q.Range);
             if (minions.Count == 0)
             {
                 return;
             }
-
-            #region Q usage
-
-            var minionsInRange = minions.Where(m => Q.IsInRange(m)).ToArray();
+            var minionsInQRange = minions.Where(m => Q.IsInRange(m)).ToArray();
 
             if (Settings.UseQ && Q.IsReady())
             {
-                if (minionsInRange.Length >= 1)
+                if (minionsInQRange.Length >= 1)
                 {
                     Q.Cast();
                 }
             }
+            var minionsInERange = minions.Where(m => W.IsInRange(m)).ToArray();
 
-            #endregion
+            if (Settings.UseW && W.IsReady())
+            {
+                if (minionsInERange.Length >= 2)
+                {
+                    W.Cast();
+                }
+            }
         }
     }
 }

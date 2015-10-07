@@ -18,7 +18,7 @@ namespace ZiiM.Sona.Modes
         {
             if (Settings.UseW && Player.Instance.ManaPercent > Settings.Mana && W.IsReady())
             {
-                var tars = HeroManager.Allies.Where(a => W.IsInRange(a)).ToArray();
+                var tars = EntityManager.Heroes.Allies.Where(a => W.IsInRange(a)).ToArray();
                 {
                     if (tars.Length >= Settings.Allies)
                     {

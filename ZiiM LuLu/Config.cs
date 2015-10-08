@@ -50,6 +50,10 @@ namespace ZiiM.LuLu
                 Combo.Initialize();
                 Menu.AddSeparator();
 
+                // LaneClear
+                LaneClear.Initialize();
+                Menu.AddSeparator();
+                
                 // Harass
                 Harass.Initialize();
                 Menu.AddSeparator();
@@ -90,7 +94,44 @@ namespace ZiiM.LuLu
                 {
                 }
             }
+            public static class LaneClear
+            {
+                //Making the Checkboxs and Sliders
+                private static readonly CheckBox _useQ;
+                private static readonly CheckBox _useW;
+                private static readonly CheckBox _useE;
+                private static readonly Slider _Mana;
 
+                public static bool UseQ
+                {
+                    get { return _useQ.CurrentValue; }
+                }
+                public static bool UseW
+                {
+                    get { return _useW.CurrentValue; }
+                }
+                public static bool UseE
+                {
+                    get { return _useE.CurrentValue; }
+                }
+                public static int Mana
+                {
+                    get { return _Mana.CurrentValue; }
+                }
+
+                static LaneClear()
+                {
+                    Menu.AddGroupLabel("LaneClear");
+                    _useQ = Menu.Add("LaneClearUseQ", new CheckBox("Use Q"));
+                    _useW = Menu.Add("LaneClearUseW", new CheckBox("Use W", false));
+                    _useE = Menu.Add("LaneClearUseE", new CheckBox("Use E"));
+                    _Mana = Menu.Add("LaneClearMana", new Slider("Dont laneclear under this amount of Mana ({0}%)", 30));
+                }
+
+                public static void Initialize()
+                {
+                }
+            }
             public static class Harass
             {
                 //Making the Checkboxs and Sliders

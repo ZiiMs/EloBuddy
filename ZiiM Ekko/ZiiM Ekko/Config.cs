@@ -134,6 +134,7 @@ namespace ZiiM.Ekko
                 private static readonly CheckBox _useW;
                 private static readonly CheckBox _useE;
                 private static readonly Slider _Mana;
+                private static readonly Slider _MinInQ;
 
                 public static bool UseQ
                 {
@@ -151,6 +152,10 @@ namespace ZiiM.Ekko
                 {
                     get { return _Mana.CurrentValue; }
                 }
+                public static int MinInQ
+                {
+                    get { return _MinInQ.CurrentValue; }
+                }
 
                 static LaneClear()
                 {
@@ -159,6 +164,7 @@ namespace ZiiM.Ekko
                     _useW = Menu.Add("LaneClearUseW", new CheckBox("Use W", false));
                     _useE = Menu.Add("LaneClearUseE", new CheckBox("Use E", false));
                     _Mana = Menu.Add("LaneClearMana", new Slider("Dont LaneClear under this amount of Mana ({0}%)", 75));
+                    _MinInQ = Menu.Add("LaneClearMinInQ", new Slider("Wont cast Q unless this many minions is in range ({0}%)", 3, 1, 10));
                 }
 
                 public static void Initialize()

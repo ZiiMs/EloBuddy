@@ -68,7 +68,6 @@ namespace ZiiM.Vi
             public static class Combo
             {
                 private static readonly CheckBox _useQ;
-                private static readonly CheckBox _useW;
                 private static readonly CheckBox _useE;
                 private static readonly CheckBox _useR;
 
@@ -76,10 +75,6 @@ namespace ZiiM.Vi
                 public static bool UseQ
                 {
                     get { return _useQ.CurrentValue; }
-                }
-                public static bool UseW
-                {
-                    get { return _useW.CurrentValue; }
                 }
                 public static bool UseE
                 {
@@ -94,7 +89,6 @@ namespace ZiiM.Vi
                 {
                     Menu.AddGroupLabel("Combo");
                     _useQ = Menu.Add("comboUseQ", new CheckBox("Use Q"));
-                    _useW = Menu.Add("comboUseW", new CheckBox("Use W"));
                     _useE = Menu.Add("comboUseE", new CheckBox("Use E"));
                     _useR = Menu.Add("comboUseR", new CheckBox("Use R"));
                 }
@@ -107,16 +101,11 @@ namespace ZiiM.Vi
             {
                 //Making the Checkboxs and Sliders
                 private static readonly CheckBox _useQ;
-                private static readonly CheckBox _useW;
                 private static readonly CheckBox _useE;
 
                 public static bool UseQ
                 {
                     get { return _useQ.CurrentValue; }
-                }
-                public static bool UseW
-                {
-                    get { return _useW.CurrentValue; }
                 }
                 public static bool UseE
                 {
@@ -127,7 +116,6 @@ namespace ZiiM.Vi
                 {
                     Menu.AddGroupLabel("JungleClear");
                     _useQ = Menu.Add("JungleClearUseQ", new CheckBox("Use Q"));
-                    _useW = Menu.Add("JungleClearUseW", new CheckBox("Use W"));
                     _useE = Menu.Add("JungleClearUseE", new CheckBox("Use E"));
                 }
 
@@ -138,20 +126,10 @@ namespace ZiiM.Vi
             public static class LaneClear
             {
                 //Making the Checkboxs and Sliders
-                private static readonly CheckBox _useQ;
-                private static readonly CheckBox _useW;
                 private static readonly CheckBox _useE;
                 private static readonly Slider _Mana;
                 private static readonly Slider _MinInQ;
 
-                public static bool UseQ
-                {
-                    get { return _useQ.CurrentValue; }
-                }
-                public static bool UseW
-                {
-                    get { return _useW.CurrentValue; }
-                }
                 public static bool UseE
                 {
                     get { return _useE.CurrentValue; }
@@ -168,9 +146,7 @@ namespace ZiiM.Vi
                 static LaneClear()
                 {
                     Menu.AddGroupLabel("LaneClear");
-                    _useQ = Menu.Add("LaneClearUseQ", new CheckBox("Use Q"));
-                    _useW = Menu.Add("LaneClearUseW", new CheckBox("Use W", false));
-                    _useE = Menu.Add("LaneClearUseE", new CheckBox("Use E", false));
+                    _useE = Menu.Add("LaneClearUseE", new CheckBox("Use E"));
                     _Mana = Menu.Add("LaneClearMana", new Slider("Dont LaneClear under this amount of Mana ({0}%)", 75));
                     _MinInQ = Menu.Add("LaneClearMinInQ", new Slider("Wont cast Q unless this many minions is in range ({0}%)", 3, 1, 10));
                 }
@@ -183,17 +159,12 @@ namespace ZiiM.Vi
             {
                 //Making the Checkboxs and Sliders
                 private static readonly CheckBox _useQ;
-                private static readonly CheckBox _useW;
                 private static readonly CheckBox _useE;
                 private static readonly Slider _Mana;
 
                 public static bool UseQ
                 {
                     get { return _useQ.CurrentValue; }
-                }
-                public static bool UseW
-                {
-                    get { return _useW.CurrentValue; }
                 }
                 public static bool UseE
                 {
@@ -208,7 +179,6 @@ namespace ZiiM.Vi
                 {
                     Menu.AddGroupLabel("Harass");
                     _useQ = Menu.Add("harassUseQ", new CheckBox("Use Q"));
-                    _useW = Menu.Add("harassUseW", new CheckBox("Use W", false));
                     _useE = Menu.Add("harassUseE", new CheckBox("Use E"));
                     _Mana = Menu.Add("harassMana", new Slider("Dont harass under this amount of Mana ({0}%)", 30));
                 }

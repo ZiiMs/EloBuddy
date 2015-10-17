@@ -18,14 +18,6 @@ namespace ZiiM.Vi.Modes
             // Minions around
             foreach (var JG in EntityManager.MinionsAndMonsters.GetJungleMonsters(Player.Instance.ServerPosition, E.Range))
             {
-                #region Q usage
-                if (Settings.UseQ && Player.Instance.ManaPercent > Settings.Mana && Q.IsReady())
-                {
-                    {
-                        Q.Cast(JG);
-                    }
-                }
-                #endregion
 
                 #region E usage
                 if (Settings.UseE && Player.Instance.ManaPercent > Settings.Mana && E.IsReady())

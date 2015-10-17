@@ -12,7 +12,8 @@ namespace ZiiM.Vi
         // You will need to edit the types of spells you have for each champ as they
         // don't have the same type for each champ, for example Xerath Q is chargeable,
         // right now it's  set to Active.
-        public static Spell.Skillshot Q { get; private set; }
+        public static Spell.Chargeable Q { get; private set; }
+        public static Spell.Skillshot Q2 { get; private set; }
         public static Spell.Skillshot E { get; private set; }
         public static Spell.Targeted R { get; private set; }
 
@@ -23,7 +24,8 @@ namespace ZiiM.Vi
         static SpellManager()
         {
             // Initialize spells
-            Q = new Spell.Skillshot(SpellSlot.Q, 250, SkillShotType.Linear, 250, 1500, 55);
+            Q = new Spell.Chargeable(SpellSlot.Q, 250, 715, 6 / 5, 250, 1500, 55);
+            Q2 = new Spell.Skillshot(SpellSlot.Q, 250, SkillShotType.Linear, 250, 1500, 55);
             E = new Spell.Skillshot(SpellSlot.E, 400, SkillShotType.Linear, 250, null, 350);
             R = new Spell.Targeted(SpellSlot.R, 800);
 

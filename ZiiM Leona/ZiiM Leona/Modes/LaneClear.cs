@@ -23,7 +23,7 @@ namespace ZiiM.Leona.Modes
 
             // Minions around
             var minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.ServerPosition, Q.Range);
-            if (minions.Count == 0)
+            if (minions.Count() == 0)
             {
                 return;
             }

@@ -1,1 +1,2 @@
 C:\Users\Alex\Desktop\EloBuddy-master\ZiiM Leona\ZiiM Leona\bin\Debug\ZiiM Leona.exe.config
+C:\Users\Alex\Desktop\EloBuddy\ZiiM Leona\ZiiM Leona\bin\Debug\ZiiM Leona.exe.config

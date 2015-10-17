@@ -23,15 +23,21 @@ namespace ZiiM.Vi.Modes
 
         public override void Execute()
         {
-            if (Settings.UseQ && Q.IsReady())
+            if (Settings.UseQ)
             {
-                var target = TargetSelector.GetTarget(Q.Range, DamageType.Physical);
+                var target = TargetSelector.GetTarget(Q.MaximumRange-50, DamageType.Physical);
                 if (target != null)
                 {
-                    var qpred = Q.GetPrediction(target);
-                    if (qpred.HitChance >= HitChance.High)
+                    if (Q.IsInRange(target) && Q.IsReady())
                     {
-                        Q.Cast(qpred.CastPosition);
+                        if (SpellManager.Q.IsCharging)
+                        {
+                            Q2.Cast(target);
+                        }
+                        else
+                        {
+                            SpellManager.Q.StartCharging();
+                        }
                     }
                 }
             }

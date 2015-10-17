@@ -20,7 +20,7 @@ namespace ZiiM.Janna.Modes
         {
             if (Settings.UseR && R.IsReady())
             {
-                var getult = EntityManager.Heroes.Allies.Where(h => !h.IsDead && !h.IsRecalling && R.IsInRange(h) && h.HealthPercent <= Settings.MinHP && Player.Instance.CountEnemiesInRange(750f) > 0).ToList();
+                var getult = EntityManager.Heroes.Allies.Where(h => !h.IsDead && !h.IsRecalling() && R.IsInRange(h) && h.HealthPercent <= Settings.MinHP && Player.Instance.CountEnemiesInRange(750f) > 0).ToList();
                 var ulttar = getult.OrderBy(x => x.Health).FirstOrDefault(x => !x.IsInShopRange());
                 if (ulttar != null)
                     R.Cast();

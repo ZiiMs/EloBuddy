@@ -20,14 +20,14 @@ namespace ZiiM.LuLu.Modes
         {
             if (Settings.UseR && R.IsReady() && !Settings.UltSelf)
             {
-                var getult = EntityManager.Heroes.Allies.Where(h => !h.IsDead && !h.IsRecalling && R.IsInRange(h) && h.HealthPercent <= Settings.MinHP && Player.Instance.CountEnemiesInRange(1200f) > 0).ToList();
+                var getult = EntityManager.Heroes.Allies.Where(h => !h.IsDead && !h.IsRecalling() && R.IsInRange(h) && h.HealthPercent <= Settings.MinHP && Player.Instance.CountEnemiesInRange(1200f) > 0).ToList();
                 var ulttar = getult.OrderBy(x => x.Health).FirstOrDefault(x => !x.IsInShopRange());
                 if (ulttar != null)
                     R.Cast(ulttar);
             }
             if (Settings.UseR && R.IsReady() && Settings.UltSelf)
             {
-                var ultself = EntityManager.Heroes.Allies.Where(h => !h.IsDead && h.IsMe && !h.IsRecalling && R.IsInRange(h) && h.HealthPercent <= Settings.MinHP && Player.Instance.CountEnemiesInRange(1200f) > 0).ToList();
+                var ultself = EntityManager.Heroes.Allies.Where(h => !h.IsDead && h.IsMe && !h.IsRecalling() && R.IsInRange(h) && h.HealthPercent <= Settings.MinHP && Player.Instance.CountEnemiesInRange(1200f) > 0).ToList();
                 var ultme = ultself.OrderBy(x => x.Health).FirstOrDefault(x => !x.IsInShopRange());
                 if (ultme != null)
                     R.Cast(ultme);

@@ -18,7 +18,7 @@ namespace ZiiM.Ekko.Modes
         }
         public override void Execute()
         {
-            if (Settings.UseR && R.IsReady() && !Player.Instance.IsRecalling && !Player.Instance.IsDead && Player.Instance.HealthPercent <= Settings.MinHP)
+            if (Settings.UseR && R.IsReady() && Player.Instance.IsRecalling() && !Player.Instance.IsDead && Player.Instance.HealthPercent <= Settings.MinHP)
             { 
                 R.Cast();
             }

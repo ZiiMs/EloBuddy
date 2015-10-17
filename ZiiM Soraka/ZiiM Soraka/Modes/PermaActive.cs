@@ -21,13 +21,13 @@ namespace ZiiM.Soraka.Modes
         {
             if (Settings.UseR && R.IsReady())
             {
-                var ultable = EntityManager.Heroes.Allies.Where(a => !a.IsDead && !a.IsRecalling && a.HealthPercent <= Settings.MinHP);
+                var ultable = EntityManager.Heroes.Allies.Where(a => !a.IsDead && !a.IsRecalling() && a.HealthPercent <= Settings.MinHP);
                 if (ultable != null)
                     R.Cast();
             }
             if (Setting.UseW && W.IsReady())
             {
-                var ally = EntityManager.Heroes.Allies.Where(a => !a.IsDead && !a.IsMe && !a.IsRecalling && W.IsInRange(a) && a.HealthPercent <= Setting.MinWHP).ToList();
+                var ally = EntityManager.Heroes.Allies.Where(a => !a.IsDead && !a.IsMe && !a.IsRecalling() && W.IsInRange(a) && a.HealthPercent <= Setting.MinWHP).ToList();
                 var lowally = ally.OrderBy(x => x.Health).FirstOrDefault(x => !x.IsInShopRange());
                 if (lowally != null)
                     W.Cast(lowally);

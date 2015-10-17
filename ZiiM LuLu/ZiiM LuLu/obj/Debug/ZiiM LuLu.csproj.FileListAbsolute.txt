@@ -1,3 +1,4 @@
 C:\Users\Alex\Desktop\EloBuddy-master\ZiiM LuLu\ZiiM LuLu\ZiiM LuLu\bin\Debug\ZiiM LuLu.exe.config
 C:\Users\Alex\Desktop\EloBuddy-master\ZiiM LuLu\ZiiM LuLu\bin\Debug\ZiiM LuLu.exe.config
 C:\Users\Alex\Desktop\EloBuddy-master\ZiiM LuLu - Copy\ZiiM LuLu\bin\Debug\ZiiM LuLu.exe.config
+C:\Users\Alex\Desktop\EloBuddy\ZiiM LuLu\ZiiM LuLu\bin\Debug\ZiiM LuLu.exe.config

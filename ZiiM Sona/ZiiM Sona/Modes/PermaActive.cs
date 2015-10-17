@@ -18,11 +18,11 @@ namespace ZiiM.Sona.Modes
         {
             if (Settings.UseW && Player.Instance.ManaPercent > Settings.Mana && W.IsReady())
             {
-                var tars = HeroManager.Allies.Where(a => W.IsInRange(a)).ToArray();
+                var tars = EntityManager.Heroes.Allies.Where(a => W.IsInRange(a)).ToArray();
                 {
                     if (tars.Length >= Settings.Allies)
                     {
-                        foreach (var target in HeroManager.Allies.Where(target => target.IsValidTarget(W.Range) && !target.IsZombie && !target.IsMe))
+                        foreach (var target in EntityManager.Heroes.Allies.Where(target => target.IsValidTarget(W.Range) && !target.IsZombie && !target.IsMe))
                         {
                             if (target.HealthPercent <= Settings.MinHP)
                             {
